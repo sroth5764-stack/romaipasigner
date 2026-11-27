@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080808">
+<title>ROMA IPA SIGNER</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="shell">
+  <header class="top">
+    <div class="brandmark">R<span>×</span></div>
+    <div class="brand">
+      <h1>ROMA <em>IPA SIGNER</em></h1>
+      <p>SAFARI SIGNING WORKSPACE · v1.0</p>
+    </div>
+    <span class="pill" id="serverStatus">CHECKING</span>
+  </header>
+
+  <section class="hero panel">
+    <div class="eyebrow">CERTIFICATE-BASED WORKFLOW</div>
+    <h2>Sign your<br><span>IPA package.</span></h2>
+    <p>Use your own valid signing identity and matching provisioning profile. Signing runs on your trusted Mac — Safari is the control panel.</p>
+    <div class="hero-foot"><span class="dot"></span> LOCAL MAC SIGNING SERVICE</div>
+  </section>
+
+  <section class="panel form-panel">
+    <div class="section-title"><span>01</span><div><h3>Signing inputs</h3><p>Choose files you own or are authorized to sign.</p></div></div>
+    <label class="filebox">
+      <span class="file-icon">▣</span><span class="filecopy"><b>IPA APPLICATION</b><small id="ipaName">Choose .ipa file</small></span><span class="plus">＋</span>
+      <input id="ipa" type="file" accept=".ipa,application/octet-stream">
+    </label>
+    <label class="filebox">
+      <span class="file-icon">⌑</span><span class="filecopy"><b>P12 CERTIFICATE</b><small id="p12Name">Choose .p12 certificate</small></span><span class="plus">＋</span>
+      <input id="p12" type="file" accept=".p12,application/x-pkcs12">
+    </label>
+    <label class="password-wrap"><span>P12 PASSWORD</span><input id="p12Password" type="password" autocomplete="off" placeholder="Certificate password"></label>
+    <label class="filebox">
+      <span class="file-icon">▤</span><span class="filecopy"><b>PROVISIONING PROFILE</b><small id="profileName">Choose .mobileprovision file</small></span><span class="plus">＋</span>
+      <input id="profile" type="file" accept=".mobileprovision,application/octet-stream">
+    </label>
+    <label class="password-wrap"><span>ACCESS TOKEN</span><input id="token" type="password" autocomplete="off" placeholder="Your Mac service token"></label>
+    <button class="primary" id="signBtn">PREPARE & SIGN <span>↗</span></button>
+    <p class="hint">Your files are sent to the Mac service you configure. Do not use a public or untrusted signing server.</p>
+  </section>
+
+  <section class="panel status-panel">
+    <div class="section-title"><span>02</span><div><h3>Signing status</h3><p>Live result from your Mac service.</p></div></div>
+    <div class="statusline"><span class="status-dot" id="statusDot"></span><b id="statusTitle">READY</b><span id="statusPct">0%</span></div>
+    <div class="progress"><i id="progressBar"></i></div>
+    <pre id="log">Waiting for signing inputs…</pre>
+    <a id="downloadLink" class="download hidden" href="#">DOWNLOAD SIGNED IPA ↓</a>
+  </section>
+
+  <footer>
+    <b>ROMA IPA SIGNER</b><span>AUTHORIZED SIGNING ONLY</span>
+    <p>Signing depends on Apple's certificate, profile, device registration, entitlements and current platform requirements. This panel does not bypass Apple's controls.</p>
+  </footer>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>
